@@ -1,0 +1,7 @@
+async def main():
+    t1 = asyncio.create_task(func1())
+    t2 = asyncio.create_task(gen_tasks())
+    await t1
+    await t2
+
+asyncio.run(main())
