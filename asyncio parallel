@@ -1,7 +1,7 @@
-async def main():
-    t1 = asyncio.create_task(func1())
-    t2 = asyncio.create_task(gen_tasks())
-    await t1
-    await t2
-
-asyncio.run(main())
+    ioloop = asyncio.get_event_loop()
+    # tasks = [ioloop.create_task(reading_lines()), ioloop.create_task(ff())]
+    tasks = [ioloop.create_task(ff1()), ioloop.create_task(ff())]
+    wait_tasks = asyncio.wait(tasks)
+    ioloop.run_until_complete(wait_tasks)
+    ioloop.close()
+    return ''
